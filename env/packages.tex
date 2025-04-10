@@ -1,0 +1,104 @@
+% Encoding, Sprache, Schrift
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\renewcommand{\rmdefault}{ptm}
+
+% Bilder einbinden
+\usepackage{graphicx}
+\graphicspath{ {picture/} }
+
+% Seitenränder und sonstige Formate festlegen
+\usepackage[a4paper,left=3cm,right=2cm,top=3cm,bottom=2.5cm]{geometry}
+\usepackage{setspace}
+
+%------------- Referenzen und Verzeichnisse -------------%
+% Referenzen und URLs
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\hypersetup{
+  colorlinks   = true,
+  urlcolor     = black,
+  linkcolor    = black,
+  citecolor    = black
+}
+% Abbildungs + Tabellenverzeichnis
+\usepackage[nottoc,numbib]{tocbibind}
+% Listingverzeichnis
+\usepackage{listings}
+\renewcommand{\lstlistlistingname}{Listingverzeichnis}
+% "Abb.", "Tbl." und "Lst."
+\ifdefined\varShowTitlesInLists
+  \makeatletter
+  \renewcommand{\l@figure}[2]{\@dottedtocline{1}{1.5em}{2.3em}{Abb. #1}{#2}}
+  \renewcommand{\l@table}[2]{\@dottedtocline{1}{1.5em}{2.3em}{Tbl. #1}{#2}}
+  \renewcommand{\l@lstlisting}[2]{\@dottedtocline{1}{1.5em}{2.3em}{Lst. #1}{#2}}
+  \makeatother
+\fi
+\newcommand{\varShowTitlesInLists}{true}
+% Akronyme
+\usepackage[acronym, nogroupskip, nonumberlist, nopostdot]{glossaries}
+\loadglsentries{env/acronym.tex}
+\makenoidxglossaries
+\setacronymstyle{long-sc-short}
+% Fußnoten
+\usepackage[hang]{footmisc}
+\renewcommand{\footnotemargin}{12pt}
+% Unterschriften Bild + Tabelle
+\usepackage[font=small, justification=centering]{caption}
+% Literaturverzeichnis
+\usepackage[style=ext-authoryear,     % ext- ermöglicht das Einblenden der Klammern um die Jahreszahl in Fußnoten
+            sorting=nyt,              % Nach Nachnamen des ersten genannten Autorens sortieren, dann Jahr, dann Titel
+            isbn=false,               % Ausblenden des Feldes
+            url=false,                % Ausblenden des Feldes
+            doi=true,                 % Einblenden des Feldes
+            eprint=false,             % Ausblenden des Feldes
+            clearlang=true,           % Ausblenden von Sprachcodes
+            maxcitenames=2,           % Ab drei Autoren mit "et at." abkürzen
+            citexref=true,            % Aufsplitten von Referenz in Sammelwerken
+            mincrossrefs=0,           % Aufsplitten direkt bei der ersten Referenz auf Sammelwerk
+            backref=true,             % Rückreferenzen vom Literaturverzeichnis in den Text
+            maxbibnames=100]{biblatex}% Alle Autoren im Literaturverzeichnis ausschreiben
+\addbibresource{content/references.bib}
+\setcounter{biburllcpenalty}{1000}
+% Ausblenden der Klammern um die Jahresangabe im Literaturverzeichnis
+\ifdefined\varNoParenthesesAroundYear
+  \makeatletter
+  \def\act@on@bibmacro#1#2{%
+    \expandafter#1\csname abx@macro@\detokenize{#2}\endcsname
+  }
+  \def\patchbibmacro{\act@on@bibmacro\patchcmd}
+  \def\pretobibmacro{\act@on@bibmacro\pretocmd}
+  \def\apptobibmacro{\act@on@bibmacro\apptocmd}
+  \def\showbibmacro{\act@on@bibmacro\show}
+  \makeatother
+
+  \patchbibmacro{date+extradate}{%
+  \printtext[parens]%
+  }{%
+  \setunit{\addperiod\space}%
+  \printtext%
+  }{}{}
+\fi
+%------------- Referenzen und Verzeichnisse -------------%
+
+%--------------- Seitenspezifische imports --------------- %
+% für Titelseite
+\usepackage{chngpage}
+\usepackage{calc}
+\usepackage{float}
+% Code
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage{framed}
+\usepackage[table]{xcolor}
+%--------------- Seitenspezifische imports --------------- %
+
+
+%-------------- sonstiges - nicht verwendet --------------%
+% \usepackage{booktabs}
+% \usepackage{enumitem}
+% \usepackage[figure,table,lstlisting]{totalcount}

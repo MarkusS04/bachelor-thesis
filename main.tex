@@ -1,0 +1,41 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{env/packages.tex}
+
+\input{env/data.tex}
+\input{env/command.tex}
+
+\begin{document}
+
+    \input{env/titlepage.tex}
+    \newpage
+
+    \pagenumbering{Roman}
+
+    \input{env/sperrvermerk.tex}
+
+    \tableofcontents
+    \newpage
+
+    \listoffigures
+    \listoftables
+    \addcontentsline{toc}{section}{Listingverzeichnis}
+    \lstlistoflistings
+    \newpage
+
+    \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+    \setstretch{0.5}
+    \printnoidxglossary[type=acronym,sort=letter,style=listdotted,title=Abkürzungsverzeichnis]
+    \newpage
+
+
+    \input{content/content.tex}
+
+    \printbibliography[heading=bibintoc]
+    \clearpage
+
+    \input{content/anhang.tex}
+
+    \input{env/pers_erklaerung.tex}
+
+\end{document}
