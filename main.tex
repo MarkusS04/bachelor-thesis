@@ -6,36 +6,17 @@
 \input{env/command.tex}
 
 \begin{document}
-
     \input{env/titlepage.tex}
-    \newpage
-
     \pagenumbering{Roman}
-
     \input{env/sperrvermerk.tex}
+    \input{env/verzeichnisse.tex}
 
-    \tableofcontents
-    \newpage
-
-    \listoffigures
-    \listoftables
-    \addcontentsline{toc}{section}{Listingverzeichnis}
-    \lstlistoflistings
-    \newpage
-
-    \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
-    \setstretch{0.5}
-    \printnoidxglossary[type=acronym,sort=letter,style=listdotted,title=Abkürzungsverzeichnis]
-    \newpage
-
-
+    \pagenumbering{arabic}
     \input{content/content.tex}
 
     \printbibliography[heading=bibintoc]
     \clearpage
 
     \input{content/anhang.tex}
-
     \input{env/pers_erklaerung.tex}
-
 \end{document}
