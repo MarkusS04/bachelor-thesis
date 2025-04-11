@@ -1,2 +1,6 @@
 {"rule":"GERMAN_SPELLER_RULE","sentence":"^\\Qeu_dsgvo_2016 EU-DSGVO Art. 1, Art. 4 Satz 1 und 15 Qualität ist heute ein wichtiges Merkmal in sämtlichen Bereichen eines Unternehmens, so auch im OPM.\\E$"}
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qeu_dsgvo_2016 EU-DSGVO Art. 1, Art. 4 Satz 1 und 15 Qualität ist heute ein wichtiges Merkmal in sämtlichen Bereichen eines Unternehmens, so auch im OPM.\\E$"}
+{"rule":"BEI_VERB","sentence":"^\\QAnalyse der Standardsoftware - . Bei handelt es sich um eine Software der Firma .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QAnalyse der Standardsoftware - . Bei handelt es sich um eine Software der Firma .\\E$"}
+{"rule":"IM_IHM","sentence":"^\\QIm besteht auch die Möglichkeit mit anderer Software zu interagieren, beispielsweise mittels einer API.\\E$"}
+{"rule":"GERMAN_SPELLER_RULE","sentence":"^\\QDie Grundfunktionalität wie den sec:approval-workflow-dd\\E$"}
